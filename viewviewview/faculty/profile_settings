@@ -1,0 +1,102 @@
+<div class="container">
+	<div class="row">
+		<div class="span3" style="margin-left:-20px;">
+			<ul class="nav nav-list well">
+                		<li class="nav-header">Account Settings</li>
+         			<li><a href="<?php echo base_url();?>portal/faculty/profile_settings">Manage Account Settings</a></li>
+          			<li class="divider"></li>
+     				<li class="nav-header">News Around The School</li>
+          				<li><a href="<?php echo base_url();?>portal/faculty">News Feed</a></li>
+        			<li class="nav-header">My Class</li>
+         			 <li><a href="<?php echo base_url();?>portal/faculty/class">Class List </a></li>
+      			</ul>
+		</div><!--span4 well-->
+		<div class="span9 well">
+			<div class="span4">
+	      					<form method="POST" action ="<?php echo base_url('portal/faculty/modify_profile');?>">
+                                          <?php if(! is_null($notif_message)) echo $notif_message;?>
+                                                        <span class="label label-info"><li class="icon-lock"></li>Account Information</span>
+                                                	<div class="control-group">
+                    						<label class="control-label" for="inputUsername">Username</label>
+                    						<div class="controls">
+                      							<input type="text" id="inputUsername" placeholder="Username" name="teacher_username" value="<?php echo $faculty_profile['username'];?>">
+                   						</div><!--controls-->
+               						</div><!--control_group-->
+              						<div class="control-group">
+                 						 <label class="control-label" for="inputPassword">Password</label>
+                    						<div class="controls">
+                    							<input type="password" id="inputPassword" placeholder="Password" name="teacher_password" value="<?php echo $faculty_profile['password'];?>">
+                   						 </div><!--controls-->
+                					</div><!--control_group-->
+                					<span class="label label-info"><li class="icon-user"></li>Personal Information</span>
+	      						 <div class="control-group">
+    								<label class="control-label" for="inputFirstName">First Name</label>
+    								<div class="controls">
+     									<input type="text" id="inputName" placeholder="Name" name="teacher_first_name" value="<?php echo $faculty_profile['faculty_fname'];?>">
+    								</div><!--controls-->
+ 							 </div><!--control_group-->
+ 							<div class="control-group">
+   								<label class="control-label" for="inputMiddleName">Middle Name</label>
+    								<div class="controls">
+      								<input type="text" id="inputMiddleName" placeholder="MiddleName" name="teacher_middle_name" value="<?php echo $faculty_profile['faculty_mname'];?>">
+    								</div><!--controls-->
+  							</div><!--control_group-->
+  							<div class="control-group">
+   								<label class="control-label" for="inputLastName">Last Name</label>
+    								<div class="controls">
+      								<input type="text" id="inputLastName" placeholder="LastName" name="teacher_last_name" value="<?php echo $faculty_profile['faculty_lname'];?>">
+    								</div><!--controls-->
+    							</div><!--control_group-->
+    							<div class="control-group">
+   								<label class="control-label" for="inputAddress">Address</label>
+    								<div class="controls">
+      								<textarea name="teacher_address" rows="5" cols="5"><?php echo $faculty_profile['faculty_address'];?></textarea>
+    								</div><!--controls-->
+    							</div><!--control_group-->
+    							<div class="control-group">
+   								<label class="control-label" for="inputContactNumber">Contact Number</label>
+    								<div class="controls">
+      								<input type="text" id="inputContactNumber" placeholder="Contact Number" name="teacher_contact_number" value="<?php echo $faculty_profile['faculty_contactno'];?>"> 
+    								</div><!--controls-->
+    							</div><!--control_group-->
+    							<div class="control-group">
+   								<label class="control-label" for="inputBirthDate">Birth Date</label>
+    								<div class="controls">
+      								<input type="text" id="inputBirthDate" placeholder="Birth Date" name="teacher_birth_date" value="<?php echo $faculty_profile['faculty_bday'];?>">
+    								</div><!--controls-->
+    							</div><!--control_group-->
+    							<div class="control-group">
+   								<label class="control-label" for="inputAge">Age</label>
+    								<div class="controls">
+      								<input type="text" id="inputAge" placeholder="Age" name="teacher_age" value="<?php echo $faculty_profile['faculty_age'];?>">
+    								</div><!--controls-->
+    							</div><!--control_group-->
+    							<div class="control-group">
+   								<label class="control-label" for="inputnationality">Nationality</label>
+    								<div class="controls">
+      								<input type="text" id="inputnationality" placeholder="nationality" name="teacher_nationality" value="<?php echo $faculty_profile['faculty_nationality'];?>">
+    								</div><!--controls-->
+    							</div><!--control_group-->
+    							<div class="control-group">
+   								<label class="control-label" for="inputreligion">Religion</label>
+    								<div class="controls">
+      								<input type="text" id="inputreligion" placeholder="religion" name="teacher_religion" value="<?php echo $faculty_profile['faculty_religion'];?>">
+    								</div><!--controls-->
+    							</div><!--control_group-->
+    							<input type="submit" value="submit" class="btn">
+    						</div><!--span4-->
+	      				<div class="span4">
+	      					<ul class="thumbnails">
+ 							<li class="span4">
+    							<div class="thumbnail">
+    								<img src="<?php echo base_url()?>assets/img/default_profile_pic.jpg" alt="Profile Picture">
+    								<br>
+							      <input type="file" name="teacher_profile_pic" style="margin-left:21px;">
+ 							</div>
+  							</li>
+						 </ul>
+	      				</div><!--span4-->
+                </form><!--form-->
+		</div><!--span9 well-->
+	</div><!--row-->
+</div><!--container-->

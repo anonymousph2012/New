@@ -1,0 +1,306 @@
+
+<div class="container">
+	<div class="row">
+		<div class="span3" style="margin-left:-20px;">
+			<ul class="nav nav-list well">
+				<li class="nav-header">Account Settings</li>
+					<li><a href="<?php echo base_url('portal/student/profile_settings');?>">Manage Account Settings</a></li>
+					<li class="divider"></li>
+				<li class="nav-header">News Around The School</li>
+					<li><a href="<?php echo base_url('portal/student');?>">News Feed</a></li>
+				<li class="nav-header">Grade Records </li>
+					<li><a href="<?php echo base_url('portal/student/grades');?>">Grades </a></li>
+			</ul>
+		</div><!--span4 well-->
+		<div class="span9 well">
+			<pre><?php print_r($slug_express);?></pre>
+			<pre><?php print_r($list_of_student_year_level);?></pre>
+			<pre><?php print_r($student_grade);?></pre>
+			<pre><?php print_r($section_details);?></pre>
+				<div class="tabbable"> <!-- Only required for left/right tabs -->
+  				<ul class="nav nav-tabs">
+  					<?php
+  					$num = 1; 
+  					foreach($list_of_student_year_level as $year_level):
+  						
+  					?>
+    					<li><a href="#tab<?php echo $num?>" data-toggle="tab"><b><?php echo '('.$year_level['section_school_year'].') '.$year_level['section_name'].'-'.$year_level['section_year_level'];?></a></b></li>
+    					<?php 
+    					$num++; 
+    					endforeach?>
+    			       	</ul>
+	  			<div class="tab-content">
+	  				<?php if($year_level['section_year_level'] == '1st Year'):?>
+	    				<div class="tab-pane active" id="tab1">
+	    					<div class="navbar navbar-inverse">
+			        			 <div class="navbar-inner">
+						    		<a class="brand" href="#">1st Quarter</a>
+							</div><!--navbar-inner-->
+						</div><!--navbar-->
+	    					<table class="table">
+	    						<thead>
+	    							<th>Subject Name</th>
+	    							<th>Subject Grade</th>
+	    						</thead>
+	    						<?php foreach($student_grade as $grade): ?>
+	    						<?php if($grade['subject_quarter'] == '1ST QUARTER'): ?>
+	    						<tbody>
+	    								<td><?php echo $grade['subject_name'];?></td>
+		    							<td><b style="color:red"><?php echo $grade['subject_grade'];?></b></td>
+		    					</tbody>
+	    						<?php endif;?>
+	    						<?php  endforeach?>
+	    					</table>
+	    					<div class="navbar navbar-inverse">
+			        			 <div class="navbar-inner">
+						    		<a class="brand" href="#">2nd Quarter</a>
+							</div><!--navbar-inner-->
+						</div><!--navbar-->
+                				<table class="table">
+	    						<thead>
+	    							<th>Subject Name</th>
+	    							<th>Subject Grade</th>
+	    						</thead>
+	    						<?php foreach($student_grade as $grade): ?>
+	    						<?php if($grade['subject_quarter'] == '2ND QUARTER'): ?>
+	    						<tbody>
+	    								<td><?php echo $grade['subject_name'];?></td>
+		    							<td><b style="color:red"><?php echo $grade['subject_grade'];?></b></td>
+		    					</tbody>
+	    						<?php endif;?>
+	    						<?php  endforeach?>
+	    					</table>
+	      					
+	      					<div class="navbar navbar-inverse">
+			        			 <div class="navbar-inner">
+						    		<a class="brand" href="#">3rd Quarter</a>
+							</div><!--navbar-inner-->
+						</div><!--navbar-->
+						<table class="table">
+	    						<thead>
+	    							<th>Subject Name</th>
+	    							<th>Subject Grade</th>
+	    						</thead>
+	    						<?php foreach($student_grade as $grade): ?>
+	    						<?php if($grade['subject_quarter'] == '3RD QUARTER'): ?>
+	    						<tbody>
+	    								<td><?php echo $grade['subject_name'];?></td>
+		    							<td><b style="color:red"><?php echo $grade['subject_grade'];?></b></td>
+		    					</tbody>
+	    						<?php endif;?>
+	    						<?php  endforeach?>
+	    					</table>
+	      					
+	      					<div class="navbar navbar-inverse">
+			        			 <div class="navbar-inner">
+						    		<a class="brand" href="#">4th Quarter</a>
+							</div><!--navbar-inner-->
+						</div><!--navbar-->
+	      					<table class="table">
+	    						<thead>
+	    							<th>Subject Name</th>
+	    							<th>Subject Grade</th>
+	    						</thead>
+	    						<?php foreach($student_grade as $grade): ?>
+	    						<?php if($grade['subject_quarter'] == '4TH QUARTER'): ?>
+	    						<tbody>
+	    								<td><?php echo $grade['subject_name'];?></td>
+		    							<td><b style="color:red"><?php echo $grade['subject_grade'];?></b></td>
+		    					</tbody>
+	    						<?php endif;?>
+	    						<?php  endforeach;?>
+	    					</table>
+	      			</div><!--tab_pane_tab_1-->	
+	      			<?php endif;?>
+
+	      			<?php if($year_level['section_year_level'] == '2nd Year'):?>
+	      			<div class="tab-pane active" id="tab2">
+	    					<table class="table">
+	    						<thead>
+	    							<th>Subject Name</th>
+	    							<th>Subject Grade</th>
+	    						</thead>
+	    						<?php foreach($student_grade as $grade): ?>
+	    						<?php if($grade['subject_quarter'] == '1ST QUARTER'): ?>
+	    						<tbody>
+	    								<td><?php echo $grade['subject_name'];?></td>
+		    							<td><b style="color:red"><?php echo $grade['subject_grade'];?></b></td>
+		    					</tbody>
+	    						<?php endif;?>
+	    						<?php  endforeach?>
+	    					</table>
+                				<table class="table">
+	    						<thead>
+	    							<th>Subject Name</th>
+	    							<th>Subject Grade</th>
+	    						</thead>
+	    						<?php foreach($student_grade as $grade): ?>
+	    						<?php if($grade['subject_quarter'] == '2ND QUARTER'): ?>
+	    						<tbody>
+	    								<td><?php echo $grade['subject_name'];?></td>
+		    							<td><b style="color:red"><?php echo $grade['subject_grade'];?></b></td>
+		    					</tbody>
+	    						<?php endif;?>
+	    						<?php  endforeach?>
+	    					</table>
+	      				
+						<table class="table">
+	    						<thead>
+	    							<th>Subject Name</th>
+	    							<th>Subject Grade</th>
+	    						</thead>
+	    						<?php foreach($student_grade as $grade): ?>
+	    						<?php if($grade['subject_quarter'] == '3RD QUARTER'): ?>
+	    						<tbody>
+	    								<td><?php echo $grade['subject_name'];?></td>
+		    							<td><b style="color:red"><?php echo $grade['subject_grade'];?></b></td>
+		    					</tbody>
+	    						<?php endif;?>
+	    						<?php  endforeach?>
+	    					</table>
+	      					
+	      					<table class="table">
+	    						<thead>
+	    							<th>Subject Name</th>
+	    							<th>Subject Grade</th>
+	    						</thead>
+	    						<?php foreach($student_grade as $grade): ?>
+	    						<?php if($grade['subject_quarter'] == '4TH QUARTER'): ?>
+	    						<tbody>
+	    								<td><?php echo $grade['subject_name'];?></td>
+		    							<td><b style="color:red"><?php echo $grade['subject_grade'];?></b></td>
+		    					</tbody>
+	    						<?php endif;?>
+	    						<?php  endforeach?>
+	    					</table>
+	      			</div><!--tab_pane_tab_2-->
+	      			<?php endif;?>
+	      			<?php if($year_level['section_year_level'] == '3rd Year'):?>
+	      			<div class="tab-pane active" id="tab3">
+	    					<table class="table">
+	    						<thead>
+	    							<th>Subject Name</th>
+	    							<th>Subject Grade</th>
+	    						</thead>
+	    						<?php foreach($student_grade as $grade): ?>
+	    						<?php if($grade['subject_quarter'] == '1ST QUARTER'): ?>
+	    						<tbody>
+	    								<td><?php echo $grade['subject_name'];?></td>
+		    							<td><b style="color:red"><?php echo $grade['subject_grade'];?></b></td>
+		    					</tbody>
+	    						<?php endif;?>
+	    						<?php  endforeach?>
+	    					</table>
+                				<table class="table">
+	    						<thead>
+	    							<th>Subject Name</th>
+	    							<th>Subject Grade</th>
+	    						</thead>
+	    						<?php foreach($student_grade as $grade): ?>
+	    						<?php if($grade['subject_quarter'] == '2ND QUARTER'): ?>
+	    						<tbody>
+	    								<td><?php echo $grade['subject_name'];?></td>
+		    							<td><b style="color:red"><?php echo $grade['subject_grade'];?></b></td>
+		    					</tbody>
+	    						<?php endif;?>
+	    						<?php  endforeach?>
+	    					</table>
+	      				
+						<table class="table">
+	    						<thead>
+	    							<th>Subject Name</th>
+	    							<th>Subject Grade</th>
+	    						</thead>
+	    						<?php foreach($student_grade as $grade): ?>
+	    						<?php if($grade['subject_quarter'] == '3RD QUARTER'): ?>
+	    						<tbody>
+	    								<td><?php echo $grade['subject_name'];?></td>
+		    							<td><b style="color:red"><?php echo $grade['subject_grade'];?></b></td>
+		    					</tbody>
+	    						<?php endif;?>
+	    						<?php  endforeach?>
+	    					</table>
+	      					
+	      					<table class="table">
+	    						<thead>
+	    							<th>Subject Name</th>
+	    							<th>Subject Grade</th>
+	    						</thead>
+	    						<?php foreach($student_grade as $grade): ?>
+	    						<?php if($grade['subject_quarter'] == '4TH QUARTER'): ?>
+	    						<tbody>
+	    								<td><?php echo $grade['subject_name'];?></td>
+		    							<td><b style="color:red"><?php echo $grade['subject_grade'];?></b></td>
+		    					</tbody>
+	    						<?php endif;?>
+	    						<?php  endforeach?>
+	    					</table>
+	      			</div><!--tab_pane_tab_3-->
+	      			<?php endif;?>
+	      			<?php if($year_level['section_year_level'] == '4th Year'):?>
+	      			<div class="tab-pane active" id="tab4">
+	    					<table class="table">
+	    						<thead>
+	    							<th>Subject Name</th>
+	    							<th>Subject Grade</th>
+	    						</thead>
+	    						<?php foreach($student_grade as $grade): ?>
+	    						<?php if($grade['subject_quarter'] == '1ST QUARTER'): ?>
+	    						<tbody>
+	    								<td><?php echo $grade['subject_name'];?></td>
+		    							<td><b style="color:red"><?php echo $grade['subject_grade'];?></b></td>
+		    					</tbody>
+	    						<?php endif;?>
+	    						<?php  endforeach?>
+	    					</table>
+                				<table class="table">
+	    						<thead>
+	    							<th>Subject Name</th>
+	    							<th>Subject Grade</th>
+	    						</thead>
+	    						<?php foreach($student_grade as $grade): ?>
+	    						<?php if($grade['subject_quarter'] == '2ND QUARTER'): ?>
+	    						<tbody>
+	    								<td><?php echo $grade['subject_name'];?></td>
+		    							<td><b style="color:red"><?php echo $grade['subject_grade'];?></b></td>
+		    					</tbody>
+	    						<?php endif;?>
+	    						<?php  endforeach?>
+	    					</table>
+	      				
+						<table class="table">
+	    						<thead>
+	    							<th>Subject Name</th>
+	    							<th>Subject Grade</th>
+	    						</thead>
+	    						<?php foreach($student_grade as $grade): ?>
+	    						<?php if($grade['subject_quarter'] == '3RD QUARTER'): ?>
+	    						<tbody>
+	    								<td><?php echo $grade['subject_name'];?></td>
+		    							<td><b style="color:red"><?php echo $grade['subject_grade'];?></b></td>
+		    					</tbody>
+	    						<?php endif;?>
+	    						<?php  endforeach?>
+	    					</table>
+	      					
+	      					<table class="table">
+	    						<thead>
+	    							<th>Subject Name</th>
+	    							<th>Subject Grade</th>
+	    						</thead>
+	    						<?php foreach($student_grade as $grade): ?>
+	    						<?php if($grade['subject_quarter'] == '4TH QUARTER'): ?>
+	    						<tbody>
+	    								<td><?php echo $grade['subject_name'];?></td>
+		    							<td><b style="color:red"><?php echo $grade['subject_grade'];?></b></td>
+		    					</tbody>
+	    						<?php endif;?>
+	    						<?php  endforeach?>
+	    					</table>
+	      			</div><!--tab_pane_tab_4-->		
+	      			<?php endif;?>
+	   			</div><!--tab_content-->
+	   		</div><!--tabbable-->
+		</div><!--span9 well-->
+	</div><!--row-->
+</div><!--container-->

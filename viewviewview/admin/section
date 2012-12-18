@@ -1,0 +1,83 @@
+	<div class="span9 well">
+			<div class="tabbable"> <!-- Only required for left/right tabs -->
+  				<ul class="nav nav-tabs">
+    					<li class="active"><a href="#tab1" data-toggle="tab">Section</a></li>
+    					<li><a href="#tab2" data-toggle="tab">Add a Section</a></li>
+    			         </ul>
+	  			<div class="tab-content">
+	    				<div class="tab-pane active" id="tab1">
+	    				<?php if(! is_null($msg)) echo $msg;?>
+	    				<table class="table">
+	      					<thead>
+	      						<th>Section Number</th>
+	      						<th>Section Name</th>
+	      						<th>Year Level</th>
+	      						<th>Quick Actions</th>
+	      					</thead>
+	      					<?php foreach($section_info as $section): ?>
+	      					<tbody>
+	      						<td><?php echo $section['section_id'];?></td>
+	      						<td><?php echo $section['section_name'];?></td>
+	      						<td><?php echo $section['section_year_level'];?></td>
+	      						<td><?php echo '<a class="btn"href='.base_url('portal/administrator/section').'/'.$section['section_id'].'>Update</a>'?></td>
+	      					</tbody>
+	      					<?php endforeach?>
+	      				</table>
+	      				</div><!--tab_pane_tab_1-->
+	   				<div class="tab-pane" id="tab2">
+	   					<div class="offset3">
+	   					<img src="<?php echo base_url()?>assets/img/section.png" alt="Section Image" style="margin-left:10px;">
+	      					<form method="POST" action ="<?php echo base_url('portal/administrator/section/add_section');?>">
+                                                       <div class="control-group">
+                    						<div class="controls">
+                      							<input type="text" id="inputSection" placeholder="Section  Name" name="section_name">
+                      							<select name="section_year_level">
+                      								<option values="1st Year">1st Year</option>
+                      								<option values="2nd Year">2nd Year</option>
+                      								<option values="3rd Year">3rd Year</option>
+                      								<option values="4th Year">4th Year</option>
+                      							</select>
+                      							<br>
+                      							<button type="submit" class="btn" style="margin-left:50px;">Add a Section</button>
+                   						</div><!--controls-->
+               						</div><!--control_group-->
+              					</form><!--form-->
+              					</div>
+					</div><!--tab2-->
+	    			</div><!--tab_content-->
+			</div><!--tabbable-->
+		</div><!--span8 well-->
+	</div><!--row-->
+</div><!--container-->
+
+---------------------------------
+
+<div class="span9 well">
+			<div class="offset3">
+	   				<img src="<?php echo base_url()?>assets/img/section.png" alt="Section Image" style="margin-left:10px;">
+	      				<form method="POST" action ="<?php echo base_url('portal/administrator/section/modify');?>/<?php echo $section_info['section_id']; ?>">
+                                          <div class="control-group">
+                   					<div class="controls">
+                      						<input type="text" id="inputSection" placeholder="Section  Name" name="section_name" value="<?php echo $section_info['section_name'];?>">
+                      						<br>
+                      						Current Year Level : 
+                      						<br>
+                      						<input type="text" id="inputSection" placeholder="Section  Name" disabled value="<?php echo $section_info['section_year_level'];?>">
+                      						<br>
+                      						New Year level
+                      						<br>
+                      						<select name="section_year_level">
+                      							<option values="1st Year">1st Year</option>
+                      							<option values="2nd Year">2nd Year</option>
+                      							<option values="3rd Year">3rd Year</option>
+                      							<option values="4th Year">4th Year</option>
+                    						</select>
+                      						<br>
+                      						<button type="submit" class="btn" style="margin-left:50px;">Modify Section</button>
+                   					</div><!--controls-->
+               					</div><!--control_group-->
+              				</form><!--form-->
+              			</div>
+		</div><!--span9 well-->
+	</div><!--row-->
+</div><!--container-->

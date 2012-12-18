@@ -1,0 +1,65 @@
+<div class="span9 well">
+			<div class="tabbable"> <!-- Only required for left/right tabs -->
+  				<ul class="nav nav-tabs">
+    					<li class="active"><a href="#tab1" data-toggle="tab">Subject Management</a></li>
+    					<li><a href="#tab2" data-toggle="tab">Add a Subject</a></li>
+    			         </ul>
+	  			<div class="tab-content">
+	    				<div class="tab-pane active" id="tab1">
+	    				<?php if(! is_null($msg)) echo $msg;?>
+	    				<table class="table">
+	      					<thead>
+	      						<th width="20%">Subject Number</th>
+	      						<th>Subject Name</th>
+	      						<th>Quick Actions</th>
+	      					</thead>
+	      					<?php foreach($subject_info as $subject):?>
+	      					<tbody>
+	      						<td><?php echo $subject['subject_id'];?></td>
+	      						<td><?php echo $subject['subject_name'];?></td>
+	      						<td><?php echo '<a class="btn"href='.base_url('portal/administrator/subject').'/'.$subject['subject_id'].'>Update</a>'?></td>
+	      					</tbody>
+	      					<?php endforeach ?>
+	      			</table>
+	      				</div><!--tab_pane_tab_1-->
+	   				<div class="tab-pane" id="tab2">
+	   					<div class="offset3">
+	   					<img src="<?php echo base_url()?>assets/img/subject.png" alt="Profile Picture" style="margin-left:10px;">
+	      					<form method="POST" action ="<?php echo base_url('portal/administrator/subject/add_subject');?>">
+                                                       <div class="control-group">
+                    						<div class="controls">
+                      							<input type="text" id="inputsubject" placeholder="Subject  Name" name="subject_name" required>
+                      							<br>
+                      							<button type="submit" class="btn" style="margin-left:50px;">Add a Subject</button>
+                   						</div><!--controls-->
+               						</div><!--control_group-->
+              					</form><!--form-->
+              					</div>
+					</div><!--tab2-->
+	    			</div><!--tab_content-->
+			</div><!--tabbable-->
+		</div><!--span8 well-->
+	</div><!--row-->
+</div><!--container-->
+
+
+
+
+_____________
+
+	<div class="span9 well">
+			<div class="offset3">
+	   			<img src="<?php echo base_url()?>assets/img/subject.png" alt="Profile Picture" style="margin-left:10px;">
+	     				<form method="POST" action ="<?php echo base_url('portal/administrator/subject/modify');?>/<?php echo $subject_info['subject_id']; ?>">
+                                    <div class="control-group">
+                    				<div class="controls">
+                      					<input type="text" id="inputsubject" placeholder="Subject  Name" name="subject_name" value="<?php echo $subject_info['subject_name'];?>">
+                      					<br>
+                      					<button type="submit" class="btn" style="margin-left:50px;">Modify Subject</button>
+                   				</div><!--controls-->
+               				</div><!--control_group-->
+              			</form><!--form-->
+              	</div>
+		</div><!--span9 well-->
+	</div><!--row-->
+</div><!--container-->

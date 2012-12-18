@@ -1,0 +1,37 @@
+<div class="container">
+	<div class="row">
+		<div class="span3" style="margin-left:-20px;">
+			<ul class="nav nav-list well">
+				<li class="nav-header">Account Settings</li>
+					<li><a href="<?php echo base_url();?>portal/faculty/profile_settings">Manage Account Settings</a></li>
+					<li class="divider"></li>
+				<li class="nav-header">News Around The School</li>
+					<li><a href="<?php echo base_url();?>portal/faculty">News Feed</a></li>
+				<li class="nav-header">My Class</li>
+					<li><a href="<?php echo base_url();?>portal/faculty/class">Class List </a></li>
+			</ul>
+			<a href="<?php echo site_url();?>portal/faculty/logout" class="btn">Logout</a>
+		</div><!--span4 well-->
+		<div class="span9 well">
+			<div class="tabbable"> <!-- Only required for left/right tabs -->
+ 				<ul class="nav nav-tabs">
+    					<li class="active"><a href="#tab1" data-toggle="tab">Announcement</a></li>
+    					<li><a href="#tab2" data-toggle="tab">Freedom Wall</a></li>
+    				</ul>
+	 			 <div class="tab-content">
+	    				<div class="tab-pane active" id="tab1">
+						<?php foreach($announcement as $announcements):?>
+							<legend><strong><a href=<?php echo base_url('portal/faculty/announcement/').'/'.$announcements['announcement_id'];?>><?php echo $announcements['announcement_title'];?></a></strong> by <?php echo $announcements['administrator_name'];?> </legend>
+							<blockquote>
+								<p class="muted"><?php echo $announcements['announcement_content'];?></p>
+							</blockquote>
+						<?php endforeach?>
+					</div>
+					<div class="tab-pane" id="tab2">
+						<blockquote>Freedom Wall</blockquote>
+					</div>
+				</div><!--tab_content-->
+			</div><!--tabbable-->
+		</div><!--span8 well-->
+	</div><!--row-->
+</div><!--container-->

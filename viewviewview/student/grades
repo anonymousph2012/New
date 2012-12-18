@@ -1,0 +1,36 @@
+
+<div class="container">
+	<div class="row">
+		<div class="span3" style="margin-left:-20px;">
+			<ul class="nav nav-list well">
+				<li class="nav-header">Account Settings</li>
+					<li><a href="<?php echo base_url('portal/student/profile_settings');?>">Manage Account Settings</a></li>
+					<li class="divider"></li>
+				<li class="nav-header">News Around The School</li>
+					<li><a href="<?php echo base_url('portal/student');?>">News Feed</a></li>
+				<li class="nav-header">Grade Records </li>
+					<li><a href="<?php echo base_url('portal/student/grades');?>">Grades </a></li>
+			</ul>
+		</div><!--span4 well-->
+		<div class="span9 well">
+			<pre><?php print_r($slug_express);?></pre>
+			<pre><?php print_r($section_details);?></pre>
+			<table class="table">
+				<thead>
+					<th>School Year</th>
+					<th>Section</th>
+					<th>Adviser</th>
+					<th></th>
+				</thead>
+				<?php foreach($section_details as $section):?>
+				<tbody>
+					<td><?php echo $section['section_school_year'];?></td>
+					<td><?php echo $section['section_name'];?></td>
+					<td><?php echo $section['faculty_fname'].' '.$section['faculty_mname'].' '.$section['faculty_lname'];?></td>
+					<td><a class="btn"href=<?php echo base_url('portal/student/class/').'/'.$section['section_details_id'];?>>View Grades</a></td>
+				</tbody>
+				<?php endforeach;?>
+			</table>
+		</div><!--span9 well-->
+	</div><!--row-->
+</div><!--container-->

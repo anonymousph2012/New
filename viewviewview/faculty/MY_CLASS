@@ -1,0 +1,94 @@
+<div class="container">
+	<div class="row">
+		<div class="span3" style="margin-left:-20px;">
+			<ul class="nav nav-list well">
+				<li class="nav-header">Account Settings</li>
+					<li><a href="<?php echo base_url();?>portal/faculty/profile_settings">Manage Account Settings</a></li>
+					<li class="divider"></li>
+				<li class="nav-header">News Around The School</li>
+					<li><a href="<?php echo base_url();?>portal/faculty">News Feed</a></li>
+				<li class="nav-header">My Class</li>
+					<li><a href="<?php echo base_url();?>portal/faculty/class">Class List </a></li>
+			</ul>
+		</div><!--span4 well-->
+		<div class="span9 well">
+			<div class="navbar navbar-inverse">
+        			 <div class="navbar-inner">
+			    		<a class="brand" href="#">Class Information</a>
+			    			<table class="table">
+			    			<thead>
+			    				<th>Class Number</th>
+			    				<th>Section Name </th>
+			    				<th>Year Level</th>
+			    				<th>School Year</th>
+			    				<th>Faculty Name</th>
+			    			</thead>
+			    			<tbody style="color:black;">
+			    				
+			    				<td><?php echo $class_information['section_details_id'];?></td>
+			    				<td><?php echo $class_information['section_name'];?></td>
+			    				<td><?php echo $class_information['section_year_level'];?></td>
+			    				<td><?php echo $class_information['section_school_year'];?></td>
+			    				<td><?php echo $class_information['faculty_fname'].' '.$class_information['faculty_mname'].' '.$class_information['faculty_lname'];?></td>
+			    			</tbody>
+			    			</table>
+				</div><!--navbar-inner-->
+			</div><!--navbar-->
+			<!-- 
+				SUBJECTS TABLE
+			-->
+			<div class="navbar navbar-inverse">
+        			 <div class="navbar-inner">
+			    		<a class="brand" href="#">Subject List</a>
+			    		<table class="table">
+				    		<thead>
+				    			<th>Subject Name</th>
+				    			<th>Class Starts</th>
+				    			<th>Class Ends</th>
+				    			<th>Room No.</th>
+				    		</thead>
+			    		<?php foreach($subject_list as $subject):?>
+			    			<tbody style="color:black;">
+				    			<td><?php echo $subject['subject_name'];?></td>
+				    			<td><?php echo $subject['subject_start'];?></td>
+							<td><?php echo $subject['subject_end'];?></td>
+							<td><?php echo $subject['room_number'];?></td>
+							</tbody>
+			    		<?php endforeach?>
+			    		</table>
+			    	</div><!--navbar-inner-->
+			</div><!--navbar-->
+			<!--
+				END SUBJECTS TABLE
+			-->
+			
+
+
+			<?php if($number_of_student > 0):?>
+			<div class="navbar navbar-inverse">
+        			 <div class="navbar-inner">
+			    		<a class="brand" href="#">List of Students</a>
+						<table class="table">
+				    			<thead>
+				    				<th>Student ID</th>
+				    				<th>Student Name <th>
+				    				<th></th>
+				    			</thead>
+				    			<?php foreach($student_list as $student):?>
+				    			<tbody style="color:black;">
+				    				<td><?php echo $student['student_id'];?></td>
+				    				<td><?php echo $student['student_fname'].' '.$student['student_mname'].' '.$student['student_lname'];?></td>
+				    				<td>
+				    					<a class="btn"href="<?php echo base_url('portal/faculty/class/').'/'.$student['section_details_id'].'/'.$student['student_id'];?>">View Grades</a>
+				    				</td>
+				    			</tbody>
+				    			<?php endforeach?>
+			    			</table>
+				</div><!--navbar-inner-->
+			</div><!--navbar-->
+		<?php else : ?>
+		<h2>There are no student at this time. Add a student ? <a class="btn" href="<?php echo base_url('portal/administrator/class/add_student');?>">Add !</a></h2>
+		<?php endif ?>	
+		</div><!--span9 well-->
+	</div><!--row-->
+</div><!--container-->

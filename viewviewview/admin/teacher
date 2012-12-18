@@ -1,0 +1,235 @@
+<div class="span9 well">
+			<div class="tabbable"> <!-- Only required for left/right tabs -->
+  				<ul class="nav nav-tabs">
+    					<li class="active"><a href="#tab1" data-toggle="tab">List of Teacher</a></li>
+    					<li><a href="#tab2" data-toggle="tab">Add a Teacher</a></li>
+    			</ul>
+	  			<div class="tab-content">
+	    				<div class="tab-pane active" id="tab1">
+                			<form class="form-search" method="POST" action="<?php echo base_url('portal/administrator/teacher/search');?>">
+		                                  <div class="input-append">
+		                                  <input type="text" class="span2 search-query" placeholder="Teacher Number" name="teacher_id">
+		                                      <button type="submit" class="btn">Search</button>
+		                                  </div>
+		                        </form>
+                                	<?php if(! is_null($msg)) echo $msg;?>
+	      				<table class="table">
+	      					<thead>
+	      						<th>Teacher Number</th>
+	      						<th>Teacher Name</th>
+	      						<th>Quick Actions</th>
+	      					</thead>
+	      					<?php foreach ($faculty_profile as $faculty): ?>
+	      						<tbody>
+	      							<td> <?php echo $faculty['faculty_id'];?> </td>
+	      							<td> <?php echo $faculty['faculty_fname'].' '.$faculty['faculty_mname'].' '.$faculty['faculty_lname'];?> </td>
+	      							<td> 
+	      								<?php echo '<a class="btn"href='.base_url().'portal/administrator/teacher/'.$faculty['faculty_id'].'>Update</a>'?>
+	      							</td>
+	      						</tbody>
+	      					<?php endforeach ?>
+	      				</table>
+	      				</div><!--tab_pane_tab_1-->
+	   				<div class="tab-pane" id="tab2">
+	   					<div class="span4">
+	      					<form method="POST" action ="<?php echo base_url();?>portal/administrator/faculty/add_teacher">
+                                                        <span class="label label-info"><li class="icon-lock"></li>Account Information</span>
+                                                <div class="control-group">
+			                                      <label class="control-label" for="inputUsername">Faculty Number</label>
+			                                      <div class="controls">
+			                                          <input type="text" id="inputFaculty Number" placeholder="Faculty Number" name="faculty_number" value="<?php echo $teacher_id;?>">
+			                                    </div><!--controls-->
+			                              </div><!--control_group-->
+                                                <div class="control-group">
+                    						<label class="control-label" for="inputUsername">Username</label>
+                    						<div class="controls">
+                      							<input type="text" id="inputUsername" placeholder="Username" name="faculty_username">
+                   						</div><!--controls-->
+               						</div><!--control_group-->
+              						<div class="control-group">
+                 						 <label class="control-label" for="inputPassword">Password</label>
+                    						<div class="controls">
+                    							<input type="password" id="inputPassword" placeholder="Password" name="faculty_password">
+                   						 </div><!--controls-->
+                					</div><!--control_group-->
+                					<span class="label label-info"><li class="icon-user"></li>Personal Information</span>
+	      						 <div class="control-group">
+    								<label class="control-label" for="inputFirstName">First Name</label>
+    								<div class="controls">
+     									<input type="text" id="inputName" placeholder="Name" name="faculty_first_name">
+    								</div><!--controls-->
+ 							 </div><!--control_group-->
+ 							<div class="control-group">
+   								<label class="control-label" for="inputMiddleName">Middle Name</label>
+    								<div class="controls">
+      								<input type="text" id="inputMiddleName" placeholder="MiddleName" name="faculty_middle_name">
+    								</div><!--controls-->
+  							</div><!--control_group-->
+  							<div class="control-group">
+   								<label class="control-label" for="inputLastName">Last Name</label>
+    								<div class="controls">
+      								<input type="text" id="inputLastName" placeholder="LastName" name="faculty_last_name">
+    								</div><!--controls-->
+    							</div><!--control_group-->
+    							<div class="control-group">
+   								<label class="control-label" for="inputAddress">Address</label>
+    								<div class="controls">
+      								<textarea name="faculty_address" rows="5" cols="5"></textarea>
+    								</div><!--controls-->
+    							</div><!--control_group-->
+    							<div class="control-group">
+   								<label class="control-label" for="inputContactNumber">Contact Number</label>
+    								<div class="controls">
+      								<input type="text" id="inputContactNumber" placeholder="Contact Number" name="faculty_contact_number">
+    								</div><!--controls-->
+    							</div><!--control_group-->
+    							<div class="control-group">
+   								<label class="control-label" for="inputBirthDate">Birth Date</label>
+    								<div class="controls">
+      								<input type="text" id="inputBirthDate" placeholder="Birth Date" name="faculty_birth_date">
+    								</div><!--controls-->
+    							</div><!--control_group-->
+    							<div class="control-group">
+   								<label class="control-label" for="inputAge">Age</label>
+    								<div class="controls">
+      								<input type="text" id="inputAge" placeholder="Age" name="faculty_age">
+    								</div><!--controls-->
+    							</div><!--control_group-->
+    							<div class="control-group">
+   								<label class="control-label" for="inputnationality">nationality</label>
+    								<div class="controls">
+      								<input type="text" id="inputnationality" placeholder="nationality" name="faculty_nationality">
+    								</div><!--controls-->
+    							</div><!--control_group-->
+    							<div class="control-group">
+   								<label class="control-label" for="inputreligion">religion</label>
+    								<div class="controls">
+      								<input type="text" id="inputreligion" placeholder="religion" name="faculty_religion">
+    								</div><!--controls-->
+    							</div><!--control_group-->
+    							<input type="submit" value="submit" class="btn">
+    						</form><!--form-->
+						</div><!--span4-->
+	      				<div class="span4">
+	      					<ul class="thumbnails">
+ 							<li class="span4">
+    							<div class="thumbnail">
+    								<img src="<?php echo base_url()?>assets/img/default_profile_pic.jpg" alt="Profile Picture">
+    								<br>
+							      <input type="file" name="faculty_profile_pic" style="margin-left:21px;">
+ 							</div>
+  							</li>
+						 </ul>
+	      				</div><!--span4-->
+	   				</div><!--tab2-->
+	    			</div><!--tab_content-->
+			</div><!--tabbable-->
+		</div><!--span8 well-->
+
+
+
+    ____________________
+
+    <div class="container">
+  <div class="row">
+    <div class="span3" style="margin-left:-20px;">
+      <ul class="nav nav-list well">
+                      <li class="nav-header">Account Settings</li>
+          <li><a href="<?php echo base_url();?>portal/administrator/profile_settings">Manage Account Settings</a></li>
+        <li class="divider"></li>
+        <li class="nav-header">News Around The School</li>
+          <li><a href="<?php echo base_url();?>portal/administrator">News Feed</a></li>
+        <li class="nav-header">User Account</li>
+          <li><a href="<?php echo base_url();?>portal/administrator/user_account">Manage User Account</a></li>
+        <li class="nav-header">Student </li>
+          <li><a href="<?php echo base_url();?>portal/administrator/student">Manage Student </a></li>
+        <li class="nav-header">Teacher</li>
+          <li><a href="<?php echo base_url();?>portal/administrator/teacher">Manage Teacher</a></li>
+        <li class="nav-header">Subject</li>
+          <li><a href="<?php echo base_url();?>portal/administrator/subject">Manage Subject</a></li>
+        <li class="nav-header">Section</li>
+          <li><a href="<?php echo base_url();?>portal/administrator/section">Manage Section</a></li>
+        <li class="nav-header">Announcements</li>
+          <li><a href="<?php echo base_url();?>portal/administrator/announcements">Manage Announcements</a></li>
+        <li class="divider"></li>
+        <li><a href="<?php echo base_url();?>portal/administrator/class_management"><button class="btn btn-large btn-block btn-primary" type="button" href="">Create a Class</button></a></li>
+      </ul>
+    </div><!--span4 well-->
+    <div class="span9 well">
+      <div class="span4">
+                  <form method="POST" action ="<?php echo base_url();?>portal/administrator/teacher/modify/<?php echo $faculty_profile['faculty_id'];?>">
+                                          
+                                                        
+                                                  
+                          <span class="label label-info"><li class="icon-user"></li>Personal Information</span>
+                     <div class="control-group">
+                    <label class="control-label" for="inputFirstName">First Name</label>
+                    <div class="controls">
+                      <input type="text" id="inputName" placeholder="Name" name="teacher_first_name" value="<?php echo $faculty_profile['faculty_fname'];?>">
+                    </div><!--controls-->
+               </div><!--control_group-->
+              <div class="control-group">
+                  <label class="control-label" for="inputMiddleName">Middle Name</label>
+                    <div class="controls">
+                      <input type="text" id="inputMiddleName" placeholder="MiddleName" name="teacher_middle_name" value="<?php echo $faculty_profile['faculty_mname'];?>">
+                    </div><!--controls-->
+                </div><!--control_group-->
+                <div class="control-group">
+                  <label class="control-label" for="inputLastName">Last Name</label>
+                    <div class="controls">
+                      <input type="text" id="inputLastName" placeholder="LastName" name="teacher_last_name" value="<?php echo $faculty_profile['faculty_lname'];?>">
+                    </div><!--controls-->
+                  </div><!--control_group-->
+                  <div class="control-group">
+                  <label class="control-label" for="inputAddress">Address</label>
+                    <div class="controls">
+                      <textarea name="teacher_address" rows="5" cols="5"><?php echo $faculty_profile['faculty_address'];?></textarea>
+                    </div><!--controls-->
+                  </div><!--control_group-->
+                  <div class="control-group">
+                  <label class="control-label" for="inputContactNumber">Contact Number</label>
+                    <div class="controls">
+                      <input type="text" id="inputContactNumber" placeholder="Contact Number" name="teacher_contact_number" value="<?php echo $faculty_profile['faculty_contactno'];?>"> 
+                    </div><!--controls-->
+                  </div><!--control_group-->
+                  <div class="control-group">
+                  <label class="control-label" for="inputBirthDate">Birth Date</label>
+                    <div class="controls">
+                      <input type="text" id="inputBirthDate" placeholder="Birth Date" name="teacher_birth_date" value="<?php echo $faculty_profile['faculty_bday'];?>">
+                    </div><!--controls-->
+                  </div><!--control_group-->
+                  <div class="control-group">
+                  <label class="control-label" for="inputAge">Age</label>
+                    <div class="controls">
+                      <input type="text" id="inputAge" placeholder="Age" name="teacher_age" value="<?php echo $faculty_profile['faculty_age'];?>">
+                    </div><!--controls-->
+                  </div><!--control_group-->
+                  <div class="control-group">
+                  <label class="control-label" for="inputnationality">Nationality</label>
+                    <div class="controls">
+                      <input type="text" id="inputnationality" placeholder="nationality" name="teacher_nationality" value="<?php echo $faculty_profile['faculty_nationality'];?>">
+                    </div><!--controls-->
+                  </div><!--control_group-->
+                  <div class="control-group">
+                  <label class="control-label" for="inputreligion">Religion</label>
+                    <div class="controls">
+                      <input type="text" id="inputreligion" placeholder="religion" name="teacher_religion" value="<?php echo $faculty_profile['faculty_religion'];?>">
+                    </div><!--controls-->
+                  </div><!--control_group-->
+                  <input type="submit" value="submit" class="btn">
+                </div><!--span4-->
+                <div class="span4">
+                  <ul class="thumbnails">
+              <li class="span4">
+                  <div class="thumbnail">
+                    <img src="<?php echo base_url()?>assets/img/default_profile_pic.jpg" alt="Profile Picture">
+                    <br>
+                    <input type="file" name="teacher_profile_pic" style="margin-left:21px;">
+              </div>
+                </li>
+             </ul>
+                </div><!--span4-->
+                </form><!--form-->
+    </div><!--span9 well-->
+  </div><!--row-->
+</div><!--container-->
